@@ -3,6 +3,8 @@ ul.nav
     = link_to 'Home', root_path, class: 'nav-link'
   - if user_signed_in?
     li.nav-item
+      = link_to t('.new_post'), new_post_path, class: 'nav-link'
+    li.nav-item
       = link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link'
   - else
     li.nav-item

@@ -1,0 +1,10 @@
+h1 Posts
+
+- @posts.each do |post|
+  = link_to post.title, post_path(post)
+  br
+  - if post.body.length > 200
+    = post.body[0, 197] + '...'
+  - else
+    = post.body
+  br
