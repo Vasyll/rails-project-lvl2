@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   def index
     @posts = Post.all
@@ -5,6 +7,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find params[:id]
+
+    @comment = @post.comments.build
   end
 
   def new

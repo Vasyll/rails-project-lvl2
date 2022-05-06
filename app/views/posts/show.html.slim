@@ -1,2 +1,11 @@
 h1 = @post.title
 = @post.body
+
+- if @post.comments.count > 0
+  - @post.comments.each do |comment|
+    - if comment.id
+      p
+        = comment.content
+
+h3 Add comment to post:
+== render 'posts/comments/form', comment: @comment, url: post_comments_path(@post)
