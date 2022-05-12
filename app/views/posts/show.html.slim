@@ -1,11 +1,22 @@
-h1 = @post.title
-= @post.body
+ol.breadcrumb
+  li.breadcrumb-item
+    a href = "/" Все статьи
+  li.breadcrumb-item.active = @post.category.name
+
+.row.justify-content-center.mt-4
+  article.col-12
+    h1.mb-4.mb-lg-5 
+      = @post.title
+    p
+      p
+        = @post.body
+
+.lead.mb-3 Комментарий
+
+= render 'posts/comments/form', comment: @comment, url: post_comments_path(@post)
+
 
 - if @post.comments.count > 0
   - @post.comments.each do |comment|
     - if comment.id
-      p
-        = comment.content
-
-h3 Add comment to post:
-== render 'posts/comments/form', comment: @comment, url: post_comments_path(@post)
+      = render 'posts/comments/comment', comment: comment, post: @post if comment.is_root?

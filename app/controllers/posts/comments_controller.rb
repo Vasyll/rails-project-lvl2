@@ -8,6 +8,10 @@ class Posts::CommentsController < ApplicationController
     @comment = @post.comments.build comment_params
     @comment.creator_id = current_user.id
 
+    puts '==========================='
+    puts params
+    puts @comment.inspect
+
     if @comment.save
       redirect_to @post, notice: 'Comment was successfully created.'
     else
@@ -18,6 +22,6 @@ class Posts::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:post_comment).permit(:content)
+    params.require(:post_comment).permit(:content, :parent_id)
   end
 end

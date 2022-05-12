@@ -13,6 +13,10 @@
 
   <body class="d-flex flex-column h-100">
     <%= render 'layouts/shared/nav' %>
-    <%= yield %>
+    <main class="flex-shrink-0">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

@@ -1,0 +1,20 @@
+.card.my-4.ps-2
+  p
+    = comment.content
+
+  a.d-block.small.text-muted(href="#new_post_comment-#{comment.id}" data-bs-toggle='collapse')
+    = t('Ответить')
+  .collapse(data-bs-target="#new_post_comment-#{comment.id}" id="new_post_comment-#{comment.id}")
+    - if user_signed_in?
+      = simple_form_for post.comments.build, url: post_comments_path(post) do |f|
+        = f.input :parent_id, as: :hidden, input_html: { value: comment.id }
+        = f.input :content, label: false
+        = f.button :submit, value: 'Создать Комментарий'
+    - else
+      = render 'comment_requires'
+
+  .card.ms-2
+    - if comment.has_children?
+      - nested_comments = comment.children
+      - nested_comments.each do |nested_comment|
+        = render 'posts/comments/comment', comment: nested_comment, post: post
