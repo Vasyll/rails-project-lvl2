@@ -1,0 +1,8 @@
+ru:
+  posts:
+    index:
+      likes: Понравилось
+    form:
+      submit: Создать Статью
+    new:
+      title: Новая статья

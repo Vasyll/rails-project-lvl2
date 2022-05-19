@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     @categories = Category.all
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to @post
     else
       render :new, status: :unprocessable_entity
     end

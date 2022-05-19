@@ -1,7 +1,10 @@
 en:
   layouts:
+    application:
+      title: Collective Blog
     shared:
       nav:
+        new_post: Add post
         sign_out: Sign out
         sign_in: Sign in
         register: Sign up

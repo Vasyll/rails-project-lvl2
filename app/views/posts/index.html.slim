@@ -8,7 +8,15 @@
           = link_to post.title, post_path(post), class: 'link-dark text-decoration-none'
         - if post.body.length > 200
           .card-text.mb-2
-            = post.body[0, 197] + '...'
+            = "#{post.body[0, 197]}..."
         - else
           .card-text.mb-2
             = post.body
+
+        .text-right.small.text-muted.mt-auto
+          span.me-2
+            = "#{t('.likes')}: #{post.likes.count}"
+          span.me-2
+            = time_ago_in_words(post.created_at)
+          span
+            = post.creator.email

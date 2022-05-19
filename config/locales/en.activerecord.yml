@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    attributes:
+      post:
+        title: Title
+        body: Body
+        category_id: Сategory
+    models:
+      category_id:
+        one: Сategory
+        other: Categories
+      post:
+        one: Post
+        other: Posts

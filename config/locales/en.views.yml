@@ -1,0 +1,9 @@
+en:
+  posts:
+    index:
+      likes: Likes
+    form:
+      submit: Create Post
+    new:
+      title: New Post
+

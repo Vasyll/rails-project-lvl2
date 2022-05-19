@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    attributes:
+      post:
+        title: Заголовок
+        body: Содержание
+        category_id: Категория
+    models:
+      category_id:
+        one: Категория
+        few: Категории
+        many: Категорий
+        other: Категорий
+      post:
+        one: Статья
+        few: Статьи
+        many: Статей
+        other: Статей

@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'ancestry'
 gem 'devise'
+gem 'rails-i18n'
 gem 'rollbar'
 gem 'simple_form'
 gem 'slim-rails'
@@ -38,13 +39,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Use sqlite3 as the database for Active Record
-  gem 'minitest-power_assert'
   gem 'rubocop-rails'
   gem 'slim_lint'
   gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
+  gem 'i18n-debug'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
@@ -61,6 +62,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  gem 'faker'
+  gem 'minitest-power_assert'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

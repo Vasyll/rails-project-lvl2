@@ -1,7 +1,10 @@
 ru:
   layouts:
+    application:
+      title: Коллективный блог
     shared:
       nav:
+        new_post: Добавить статью
         sign_in: Войти
         sign_out: Выйти
         register: Регистрация

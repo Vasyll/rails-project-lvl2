@@ -6,14 +6,14 @@ require:
 AllCops:
   NewCops: enable
   Exclude:
-    - 'code/bin/**'
-    - 'code/db/schema.rb'
-    - 'code/db/migrate/**'
-    - 'code/vendor/**/*'
-    - 'code/node_modules/**/*'
+    - 'bin/**'
+    - 'db/schema.rb'
+    - 'db/migrate/**'
     - 'vendor/**/*'
     - 'node_modules/**/*'
-    - 'code/tmp/**/*'
+    - 'tmp/**/*'
+    - 'config/environment.rb'
+    - 'config/environments/*'
   SuggestExtensions: false
 
 Rails:
