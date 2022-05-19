@@ -31,7 +31,5 @@ ol.breadcrumb
 
 = render 'posts/comments/form', comment: @comment, url: post_comments_path(@post)
 
-- if @post.comments.count.positive?
-  - @post.comments.each do |comment|
-    - if comment.id
-      = render 'posts/comments/comment', comment: comment, post: @post if comment.is_root?
+- @post.comments.each do |comment|
+  = render 'posts/comments/comment', comment: comment, post: @post if comment.id && comment.is_root?
