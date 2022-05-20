@@ -5,7 +5,7 @@ class Posts::CommentsController < ApplicationController
     authenticate_user!
     @post = Post.find params[:post_id]
     @comment = @post.comments.build comment_params
-    @comment.creator_id = current_user.id
+    @comment.user_id = current_user.id
 
     if @comment.save
       redirect_to @post
