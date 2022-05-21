@@ -11,7 +11,9 @@
         = f.input :content, class: 'form-control text required', label: false
         = f.button :submit, class: 'btn btn-primary mb-4', value: 'Создать Комментарий'
     - else
-      = render 'comment_requires'
+      .d-flex
+        | Requires
+        a.mx-1 href = "/users/sign_in" Sign In
 
   .card.ms-2
     - if comment.has_children?
