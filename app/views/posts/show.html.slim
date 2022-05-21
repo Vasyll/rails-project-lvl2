@@ -27,7 +27,7 @@ ol.breadcrumb
           = link_to post_likes_path(@post), method: 'post' do
             i.far.fa-thumbs-up.text-secondary
 
-.lead.mb-3 = t('.comment') 
+.lead.mb-3 = t('.comment')
 - if user_signed_in?
   = render 'posts/comments/form', comment: @comment, url: post_comments_path(@post)
 - else
