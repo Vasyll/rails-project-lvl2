@@ -2,26 +2,22 @@
 
 class PostsController < ApplicationController
   def index
-return
     @posts = Post.all
   end
 
   def show
-return
     @post = Post.find params[:id]
 
     @comment = @post.comments.build
   end
 
   def new
-return
     authenticate_user!
     @post = current_user.posts.build
     @categories = Category.all
   end
 
   def create
-return
     authenticate_user!
     @post = current_user.posts.build(post_params)
     @categories = Category.all

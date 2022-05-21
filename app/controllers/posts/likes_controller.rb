@@ -2,7 +2,8 @@
 
 class Posts::LikesController < ApplicationController
   def create
-return
+    authenticate_user!
+
     @post = Post.find params[:post_id]
     @like = @post.likes.build
     @like.user_id = current_user.id
@@ -15,7 +16,8 @@ return
   end
 
   def destroy
-return
+    authenticate_user!
+
     post = Post.find params[:post_id]
     like = post.likes.find params[:id]
 
