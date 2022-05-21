@@ -1,6 +1,6 @@
 ol.breadcrumb
   li.breadcrumb-item
-    a href = "/" Все статьи
+    a href = "/" = t('.all_posts')
   li.breadcrumb-item.active = @post.category.name
 
 .row.justify-content-center.mt-4
@@ -27,11 +27,11 @@ ol.breadcrumb
           = link_to post_likes_path(@post), method: 'post' do
             i.far.fa-thumbs-up.text-secondary
 
-.lead.mb-3 Комментарий
+.lead.mb-3 = t('.comment') 
 - if user_signed_in?
   = render 'posts/comments/form', comment: @comment, url: post_comments_path(@post)
 - else
-  span.me-2 Для комментирования Вам необходимо войти в систему или зарегистрироваться.
+  span.me-2 = t('.to_post_comments_login_or_register')
 
 - @post.comments.each do |comment|
   = render 'posts/comments/comment', comment: comment, post: @post if comment.id && comment.is_root?

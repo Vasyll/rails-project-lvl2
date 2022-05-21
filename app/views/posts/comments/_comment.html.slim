@@ -3,13 +3,16 @@
     = comment.content
 
   a.d-block.small.text-muted(href="#new_post_comment-#{comment.id}" data-bs-toggle='collapse')
-    = t('Ответить')
+    = t('.reply')
   .collapse(data-bs-target="#new_post_comment-#{comment.id}" id="new_post_comment-#{comment.id}")
     - if user_signed_in?
       = simple_form_for post.comments.build, url: post_comments_path(post) do |f|
+        = f.error_notification
+        = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
         = f.input :parent_id, as: :hidden, input_html: { value: comment.id }
         = f.input :content, class: 'form-control text required', label: false
-        = f.button :submit, class: 'btn btn-primary mb-4', value: 'Создать Комментарий'
+        = f.button :submit, class: 'btn btn-primary mb-4', value: t('.create_comment')
     - else
       .d-flex
         | Requires

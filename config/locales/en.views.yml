@@ -1,9 +1,19 @@
 en:
   posts:
+    comments:
+      comment:
+        create_comment: Create Comment
+        reply: Reply
+      form:
+        create_comment: Create Comment
     index:
+      title: Collective Blog
       likes: Likes
     form:
       submit: Create Post
     new:
       title: New Post
-
+    show:
+      all_posts: All posts
+      comment: Comment
+      to_post_comments_login_or_register: To comment, you need to log in or register.

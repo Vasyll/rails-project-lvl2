@@ -4,7 +4,8 @@ ru:
       title: Коллективный блог
     shared:
       nav:
+        hexlet_logo: Хекслет логотип
         new_post: Добавить статью
+        register: Регистрация
         sign_in: Войти
         sign_out: Выйти
-        register: Регистрация

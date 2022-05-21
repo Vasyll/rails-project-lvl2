@@ -1,8 +1,19 @@
 ru:
   posts:
+    comments:
+      comment:
+        create_comment: Создать комментарий
+        reply: Ответить
+      form:
+        create_comment: Создать комментарий
     index:
+      title: Коллективный блог
       likes: Понравилось
     form:
       submit: Создать Статью
     new:
       title: Новая статья
+    show:
+      all_posts: Все статьи
+      comment: Комментарий
+      to_post_comments_login_or_register: Для комментирования Вам необходимо войти в систему или зарегистрироваться.
