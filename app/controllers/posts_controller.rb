@@ -3,6 +3,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    puts @posts.inspect
   end
 
   def show
@@ -14,13 +15,13 @@ class PostsController < ApplicationController
   def new
     authenticate_user!
     @post = current_user.posts.build
-    @categories = Category.all
+    @categories = PostCategory.all
   end
 
   def create
     authenticate_user!
     @post = current_user.posts.build(post_params)
-    @categories = Category.all
+    @categories = PostCategory.all
 
     if @post.save
       redirect_to @post
@@ -32,6 +33,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :category_id)
+    params.require(:post).permit(:title, :body, :post_category_id)
   end
 end

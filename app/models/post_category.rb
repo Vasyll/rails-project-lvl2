@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Category < ApplicationRecord
+class PostCategory < ApplicationRecord
   has_many :posts, dependent: :nullify
 end

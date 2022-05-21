@@ -7,6 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :nullify, foreign_key: 'creator_id', inverse_of: :creator
-  has_many :comments, dependent: :nullify
-  has_many :likes, dependent: :nullify
+  has_many :post_comments, dependent: :nullify
+  has_many :post_likes, dependent: :nullify
 end

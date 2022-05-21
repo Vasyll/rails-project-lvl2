@@ -6,9 +6,6 @@ class Posts::LikesController < ApplicationController
     @like = @post.likes.build
     @like.user_id = current_user.id
 
-    Rails.logger.debug @post.inspect
-    Rails.logger.debug @like.inspect
-
     if @like.save
       redirect_to @post
     else
@@ -18,8 +15,6 @@ class Posts::LikesController < ApplicationController
 
   def destroy
     post = Post.find params[:post_id]
-    Rails.logger.debug post.inspect
-    Rails.logger.debug post.likes.inspect
     like = post.likes.find params[:id]
 
     if like.destroy
