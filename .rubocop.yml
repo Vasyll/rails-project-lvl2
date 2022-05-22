@@ -12,8 +12,6 @@ AllCops:
     - 'vendor/**/*'
     - 'node_modules/**/*'
     - 'tmp/**/*'
-    - 'config/environment.rb'
-    - 'config/environments/*'
   SuggestExtensions: false
 
 Rails:
