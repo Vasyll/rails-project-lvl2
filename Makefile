@@ -2,7 +2,7 @@ test:
 	bin/rails test
 
 setup:
-	bundle install
+	bin/setup
 
 lint:
 	bundle exec rubocop
