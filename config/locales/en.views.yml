@@ -3,7 +3,9 @@ en:
     comments:
       comment:
         create_comment: Create Comment
+        requires: Requires
         reply: Reply
+        sign_in: Sign In
       form:
         create_comment: Create Comment
     index:

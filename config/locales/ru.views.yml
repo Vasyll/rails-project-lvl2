@@ -3,7 +3,9 @@ ru:
     comments:
       comment:
         create_comment: Создать комментарий
+        requires: Требуется
         reply: Ответить
+        sign_in: войти
       form:
         create_comment: Создать комментарий
     index:

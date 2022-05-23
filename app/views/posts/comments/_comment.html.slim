@@ -15,8 +15,8 @@
         = f.button :submit, class: 'btn btn-primary mb-4', value: t('.create_comment')
     - else
       .d-flex
-        | Requires
-        a.mx-1 href = "/users/sign_in" Sign In
+        = t('.requires')
+        a.mx-1 href = '/users/sign_in' = t('.sign_in')
 
   .card.ms-2
     - if comment.has_children?
