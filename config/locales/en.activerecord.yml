@@ -4,9 +4,9 @@ en:
       post:
         title: Title
         body: Body
-        post_category_id: Сategory
+        category_id: Сategory
     models:
-      post_category_id:
+      category_id:
         one: Сategory
         other: Categories
       post:

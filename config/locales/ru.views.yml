@@ -12,7 +12,7 @@ ru:
       title: Коллективный блог
       likes: Понравилось
     form:
-      submit: Создать Статью
+      submit: Создать cтатью
     new:
       title: Новая статья
     show:

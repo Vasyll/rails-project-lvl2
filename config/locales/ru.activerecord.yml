@@ -4,9 +4,9 @@ ru:
       post:
         title: Заголовок
         body: Содержание
-        post_category_id: Категория
+        category_id: Категория
     models:
-      post_category_id:
+      category_id:
         one: Категория
         few: Категории
         many: Категорий
