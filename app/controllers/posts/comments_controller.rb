@@ -3,6 +3,7 @@
 class Posts::CommentsController < ApplicationController
   def create
     authenticate_user!
+
     @post = Post.find params[:post_id]
     @comment = @post.comments.build comment_params
     @comment.user_id = current_user.id
