@@ -31,7 +31,7 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to post_url(@post)
 
     post_comment = PostComment.find_by content: @attrs[:content]
-    assert { post_comment.parent == nil }
+    assert { post_comment.parent.nil? }
   end
 
   test 'signed user can create nested comment' do
