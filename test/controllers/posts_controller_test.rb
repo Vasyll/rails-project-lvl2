@@ -10,7 +10,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @attrs = {
       title: Faker::Book.title,
-      body: Faker::Books::Dune.quote,
+      body: Faker::Lorem.paragraph_by_chars(number: 200),
       category_id: categories(:one).id
     }
   end
