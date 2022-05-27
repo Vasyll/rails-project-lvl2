@@ -1,0 +1,10 @@
+en:
+  posts:
+    comments:
+      create:
+        failure: Comment cannot be created
+        comment_empty: Comment cannot be empty
+        success: New comment was successfully created
+    create:
+      failure: Post cannot be created
+      success: New post was successfully created

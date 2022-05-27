@@ -23,9 +23,9 @@ class PostsController < ApplicationController
     @categories = Category.all
 
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: t('.success')
     else
-      render :new, status: :unprocessable_entity
+      render :new, notice: t('.failure')
     end
   end
 

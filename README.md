@@ -6,7 +6,7 @@
 
 A collective blog is a gem that allows registered users to publish their articles, rate published articles, and discuss them by placing comments in a tree view.
 
-You can test the collective blog here: https://rails-collective-blog-ru.hexlet.app/
+You can test the collective blog here: https://rails-project-lvl2-403793.herokuapp.com
 
 # Installation
 

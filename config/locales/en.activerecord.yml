@@ -4,11 +4,16 @@ en:
       post:
         title: Title
         body: Body
-        category_id: Сategory
+        category: Category
+      post_comment:
+        content: Comment
     models:
-      category_id:
-        one: Сategory
+      category:
+        one: Category
         other: Categories
       post:
         one: Post
         other: Posts
+      post_comment:
+        one: Сomment
+        other: Сomments

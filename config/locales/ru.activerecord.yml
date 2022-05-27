@@ -4,9 +4,11 @@ ru:
       post:
         title: Заголовок
         body: Содержание
-        category_id: Категория
+        category: Категория
+      post_comment:
+        content: Комментарий
     models:
-      category_id:
+      category:
         one: Категория
         few: Категории
         many: Категорий
@@ -16,3 +18,8 @@ ru:
         few: Статьи
         many: Статей
         other: Статей
+      post_comment:
+        one: Комментарий
+        few: Комментария
+        many: Комментариев
+        other: Комментариев
