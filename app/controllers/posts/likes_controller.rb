@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 class Posts::LikesController < ApplicationController
-  before_action :set_post
+  before_action :set_post_like
 
   def create
-    authenticate_user!
-
     if @like
       redirect_to @post
       return
@@ -22,8 +20,6 @@ class Posts::LikesController < ApplicationController
   end
 
   def destroy
-    authenticate_user!
-
     if @like.nil?
       redirect_to @post
       return
@@ -38,7 +34,9 @@ class Posts::LikesController < ApplicationController
 
   private
 
-  def set_post
+  def set_post_like
+    authenticate_user!
+
     @post = Post.find params[:post_id]
     @like = @post.likes.find_by user_id: current_user.id
   end
