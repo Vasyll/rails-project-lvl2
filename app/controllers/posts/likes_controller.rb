@@ -1,14 +1,17 @@
 # frozen_string_literal: true
 
 class Posts::LikesController < ApplicationController
+  before_action :set_post
+
   def create
     authenticate_user!
 
-    @post = Post.find params[:post_id]
-    @like = @post.likes.build
-    @like.user_id = current_user.id
+    return if @post.likes.find_by user_id: current_user.id
 
-    if @like.save
+    like = @post.likes.build
+    like.user_id = current_user.id
+
+    if like.save
       redirect_to @post
     else
       redirect_to @post, status: :unprocessable_entity
@@ -18,13 +21,19 @@ class Posts::LikesController < ApplicationController
   def destroy
     authenticate_user!
 
-    post = Post.find params[:post_id]
-    like = post.likes.find params[:id]
+    like = @post.likes.find_by user_id: current_user.id
+    return if like.nil?
 
     if like.destroy
-      redirect_to post
+      redirect_to @post
     else
-      redirect_to post, status: :unprocessable_entity
+      redirect_to @post, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def set_post
+    @post = Post.find params[:post_id]
   end
 end

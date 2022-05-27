@@ -7,6 +7,6 @@ h2
     = f.input :email, required: true, autofocus: true,
       value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
       input_html: { autocomplete: 'email' }
-  .form-actions
-    = f.button :submit, t('.resend_confirmation_instructions')
+  .form-actions.mb-3
+    = f.button :submit, t('.resend_confirmation_instructions'), class: 'btn-primary'
 = render 'devise/shared/links'

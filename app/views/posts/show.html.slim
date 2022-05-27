@@ -19,9 +19,8 @@ ol.breadcrumb
       .likes-section
         span.me-2
           = @post.likes.count
-        - like = @post.likes.find_by user_id: current_user&.id
-        - if like
-          = link_to post_like_path(@post, like), method: 'delete' do
+        - if @post.likes.find_by user_id: current_user&.id
+          = link_to post_like_path(@post), method: 'delete' do
             i.fas.fa-thumbs-up.text-secondary
         - else
           = link_to post_likes_path(@post), method: 'post' do

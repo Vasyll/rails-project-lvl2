@@ -10,10 +10,10 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     comment = post_comments(:one)
     @attrs = {
-      content: 'Comment'
+      content: Faker::Quote.matz
     }
     @nested_attrs = {
-      content: 'Nested comment',
+      content: Faker::Quote.matz,
       parent_id: comment.id
     }
   end
