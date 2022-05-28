@@ -6,12 +6,8 @@
       .col-md-12.card.mb-3.card-body
         h2.h5.card-title
           = link_to post.title, post_path(post), class: 'link-dark text-decoration-none'
-        - if post.body.length > 200
-          .card-text.mb-2
-            = "#{post.body[0, 197]}..."
-        - else
-          .card-text.mb-2
-            = post.body
+        .card-text.mb-2
+          = truncate(post.body, length: 200)
 
         .text-right.small.text-muted.mt-auto
           span.me-2
