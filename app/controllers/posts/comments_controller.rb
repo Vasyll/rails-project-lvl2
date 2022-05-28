@@ -4,19 +4,19 @@ class Posts::CommentsController < ApplicationController
   def create
     authenticate_user!
 
-    post = Post.find params[:post_id]
-    comment = post.comments.build comment_params
-    if comment.content == ''
-      redirect_to post, notice: t('.comment_empty')
+    @post = Post.find params[:post_id]
+    @comment = @post.comments.build comment_params
+    @comment.user_id = current_user.id
+
+    if @comment.invalid?
+      redirect_to @post, alert: @comment.errors.objects.first.full_message
       return
     end
 
-    comment.user_id = current_user.id
-
-    if comment.save
-      redirect_to post, notice: t('.success')
+    if @comment.save
+      redirect_to @post, notice: t('.success')
     else
-      render 'posts/show', notice: t('.failure')
+      render 'posts/show', alert: t('.failure')
     end
   end
 

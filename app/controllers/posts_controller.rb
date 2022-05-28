@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.order(created_at: :desc).eager_load(:creator)
   end
 
   def show
@@ -14,18 +14,16 @@ class PostsController < ApplicationController
   def new
     authenticate_user!
     @post = current_user.posts.build
-    @categories = Category.all
   end
 
   def create
     authenticate_user!
     @post = current_user.posts.build(post_params)
-    @categories = Category.all
 
     if @post.save
       redirect_to @post, notice: t('.success')
     else
-      render :new, notice: t('.failure')
+      render :new, alert: t('.failure')
     end
   end
 

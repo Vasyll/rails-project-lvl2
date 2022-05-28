@@ -18,7 +18,7 @@ ol.breadcrumb
           = time_ago_in_words(@post.created_at)
       .likes-section
         span.me-2
-          = @post.likes.count
+          = @post.post_likes_count
         - if @post.likes.find_by user_id: current_user&.id
           = link_to post_like_path(@post), method: 'delete' do
             i.fas.fa-thumbs-up.text-secondary
