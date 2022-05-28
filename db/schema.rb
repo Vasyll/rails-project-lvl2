@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2022_05_28_171652) do
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "post_likes_count"
+    t.integer "post_likes_count", default: 0
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["creator_id"], name: "index_posts_on_creator_id"
   end
