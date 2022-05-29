@@ -19,8 +19,10 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest cant create comment' do
+    comments_count = PostComment.count
     post post_comments_url(@post), params: { post_comment: @attrs }
-    assert_response :redirect
+
+    assert { PostComment.count == comments_count }
     assert_redirected_to new_user_session_path
   end
 
@@ -30,7 +32,7 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     post post_comments_url(@post), params: { post_comment: @attrs }
     assert_redirected_to post_url(@post)
 
-    post_comment = PostComment.find_by content: @attrs[:content]
+    post_comment = PostComment.find_by @attrs
     assert { post_comment.parent.nil? }
   end
 

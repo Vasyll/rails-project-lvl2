@@ -19,7 +19,7 @@ ol.breadcrumb
       .likes-section
         span.me-2
           = @post.post_likes_count
-        - if @post.likes.find_by user_id: current_user&.id
+        - if @like
           = link_to post_like_path(@post), method: 'delete' do
             i.fas.fa-thumbs-up.text-secondary
         - else
@@ -28,7 +28,7 @@ ol.breadcrumb
 
 .lead.mb-3 = t('.comment')
 - if user_signed_in?
-  = render 'posts/comments/form', comment: @comment, url: post_comments_path(@post)
+  = render 'posts/comments/form', comment: @comment, url: post_comments_path(@post), parent_comment_id: nil
 - else
   span.me-2 = t('.to_post_comments_login_or_register')
 

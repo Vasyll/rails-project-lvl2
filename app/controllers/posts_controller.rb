@@ -2,12 +2,12 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.order(created_at: :desc).eager_load(:creator)
+    @posts = Post.order(created_at: :desc).eager_load(:creator).page(params[:page])
   end
 
   def show
     @post = Post.find params[:id]
-
+    @like = @post.likes.find_by user_id: current_user&.id
     @comment = @post.comments.build
   end
 

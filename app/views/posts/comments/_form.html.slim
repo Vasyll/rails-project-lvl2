@@ -1,6 +1,7 @@
 = simple_form_for comment, url: url do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
+  - if parent_comment_id
+    = f.input :parent_id, as: :hidden, input_html: { value: parent_comment_id }
   = f.input :content, class: 'form-control text required', label: false
   = f.button :submit, class: 'btn btn-primary mb-4', value: t('.create_comment')

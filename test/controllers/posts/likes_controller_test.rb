@@ -13,8 +13,10 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest cant like post' do
+    likes_count = PostLike.count
     post post_likes_url @post_without_like
-    assert_response :redirect
+
+    assert(PostLike.count == likes_count)
     assert_redirected_to new_user_session_path
   end
 
@@ -29,8 +31,10 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest cant dislike post' do
+    likes_count = PostLike.count
     delete post_like_url @post_with_like, @like
-    assert_response :redirect
+
+    assert(PostLike.count == likes_count)
     assert_redirected_to new_user_session_path
   end
 

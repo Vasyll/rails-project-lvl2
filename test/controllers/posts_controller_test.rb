@@ -27,7 +27,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test 'guest should raise error from new' do
     get new_post_url
-    assert_response :redirect
     assert_redirected_to new_user_session_path
   end
 
@@ -38,8 +37,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest cant create post' do
+    posts_count = Post.count
     post posts_url, params: { post: @attrs }
-    assert_response :redirect
+    assert { Post.count == posts_count }
     assert_redirected_to new_user_session_path
   end
 
@@ -47,10 +47,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
 
     post posts_url, params: { post: @attrs }
-    assert_response :redirect
 
-    blog_post = Post.find_by! title: @attrs[:title]
-    assert { blog_post.creator == @user }
+    blog_post = Post.find_by! @attrs
+    assert blog_post
 
     assert_redirected_to post_url(blog_post)
   end
