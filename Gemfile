@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'ancestry'
 gem 'bootstrap5-kaminari-views'
 gem 'devise'
+gem 'faker'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'rollbar'
@@ -65,7 +66,6 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 
-  gem 'faker'
   gem 'minitest-power_assert'
 end
 
