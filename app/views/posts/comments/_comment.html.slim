@@ -1,19 +1,17 @@
 .card.my-4.ps-2
   p
-    = comment.content
+    = comment[:content]
 
-  a.d-block.small.text-muted(href="#new_post_comment-#{comment.id}" data-bs-toggle='collapse')
+  a.d-block.small.text-muted(href="#new_post_comment-#{comment[:id]}" data-bs-toggle='collapse')
     = t('.reply')
-  .collapse(data-bs-target="#new_post_comment-#{comment.id}" id="new_post_comment-#{comment.id}")
+  .collapse(data-bs-target="#new_post_comment-#{comment[:id]}" id="new_post_comment-#{comment[:id]}")
     - if user_signed_in?
-      = render 'posts/comments/form', comment: post.comments.build, url: post_comments_path(post), parent_comment_id: comment.id
+      = render 'posts/comments/form', comment: post.comments.build, url: post_comments_path(post), parent_comment_id: comment[:id]
     - else
       .d-flex
         = t('.requires')
         a.mx-1 href = '/users/sign_in' = t('.sign_in')
 
   .card.ms-2
-    - if comment.has_children?
-      - nested_comments = comment.children
-      - nested_comments.each do |nested_comment|
-        = render 'posts/comments/comment', comment: nested_comment, post: post
+    - comments.map do |comment, sub_comments|
+      = render 'posts/comments/comment', comment: comment, comments: sub_comments, post: post

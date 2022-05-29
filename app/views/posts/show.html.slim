@@ -32,5 +32,5 @@ ol.breadcrumb
 - else
   span.me-2 = t('.to_post_comments_login_or_register')
 
-- @post.comments.each do |comment|
-  = render 'posts/comments/comment', comment: comment, post: @post if comment.id && comment.is_root?
+- @comments.map do |comment, sub_comments|
+  = render 'posts/comments/comment', comment: comment, comments: sub_comments, post: @post
