@@ -10,7 +10,7 @@
     - else
       .d-flex
         = t('.requires')
-        a.mx-1 href = '/users/sign_in' = t('.sign_in')
+        = link_to t('.sign_in'), new_user_session_path, class: 'mx-1'
 
   .card.ms-2
     - comments.map do |comment, sub_comments|

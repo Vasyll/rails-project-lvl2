@@ -8,15 +8,10 @@ class Posts::CommentsController < ApplicationController
     @comment = @post.comments.build comment_params
     @comment.user_id = current_user.id
 
-    if @comment.invalid?
-      redirect_to @post, alert: @comment.errors.objects.first.full_message
-      return
-    end
-
     if @comment.save
       redirect_to @post, notice: t('.success')
     else
-      render 'posts/show', alert: t('.failure')
+      redirect_to @post, alert: @comment.errors.objects.first.full_message
     end
   end
 

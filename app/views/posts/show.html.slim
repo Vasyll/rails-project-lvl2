@@ -1,6 +1,6 @@
 ol.breadcrumb
   li.breadcrumb-item
-    a href = "/" = t('.all_posts')
+    = link_to t('.all_posts'), root_path
   li.breadcrumb-item.active = @post.category.name
 
 .row.justify-content-center.mt-4
@@ -32,5 +32,5 @@ ol.breadcrumb
 - else
   span.me-2 = t('.to_post_comments_login_or_register')
 
-- @comments.map do |comment, sub_comments|
+- @comments.each do |comment, sub_comments|
   = render 'posts/comments/comment', comment: comment, comments: sub_comments, post: @post

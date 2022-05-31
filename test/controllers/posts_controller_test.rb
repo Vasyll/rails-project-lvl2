@@ -48,7 +48,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     post posts_url, params: { post: @attrs }
 
-    blog_post = Post.find_by! @attrs
+    blog_post = Post.find_by @attrs
     assert blog_post
 
     assert_redirected_to post_url(blog_post)
